@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        /* Estilos para la calculadora */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+        .calculator input[type="text"] {
+            grid-column: span 4;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+        }
+        .calculator button.operator {
+            background-color: #ff9800;
+            color: #fff;
+        }
+        .calculator button.clear {
+            background-color: #ff7f7f;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contenedor principal de la calculadora -->
+<div class="calculator">
+    <!-- Pantalla de la calculadora -->
+    <input type="text" id="screen" disabled>
+
+    <!-- Botones de la calculadora -->
+    <button onclick="clearScreen()" class="clear">C</button>
+    <button onclick="addToScreen('7')">7</button>
+    <button onclick="addToScreen('8')">8</button>
+    <button onclick="addToScreen('9')">9</button>
+    <button onclick="addToScreen('/')">÷</button>
+    <button onclick="addToScreen('4')">4</button>
+    <button onclick="addToScreen('5')">5</button>
+    <button onclick="addToScreen('6')">6</button>
+    <button onclick="addToScreen('*')">x</button>
+    <button onclick="addToScreen('1')">1</button>
+    <button onclick="addToScreen('2')">2</button>
+    <button onclick="addToScreen('3')">3</button>
+    <button onclick="addToScreen('-')">-</button>
+    <button onclick="addToScreen('0')">0</button>
+    <button onclick="addToScreen('.')">.</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="addToScreen('+')" class="operator">+</button>
+</div>
+
+<!-- Scripts para la funcionalidad de la calculadora -->
+<script>
+    // Función para añadir caracteres a la pantalla
+    function addToScreen(char) {
+        document.getElementById('screen').value += char;
+    }
+
+    // Función para limpiar la pantalla
+    function clearScreen() {
+        document.getElementById('screen').value = '';
+    }
+
+    // Función para calcular el resultado
+    function calculate() {
+        var result = eval(document.getElementById('screen').value);
+        document.getElementById('screen').value = result;
+    }
+</script>
+
+</body>
+</html>
+
